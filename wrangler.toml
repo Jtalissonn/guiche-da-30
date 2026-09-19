@@ -1,0 +1,22 @@
+name = "guiche-da-30"
+main = "worker.js"
+compatibility_date = "2026-09-01"
+
+[triggers]
+crons = ["17 8 * * *"]
+
+[vars]
+APP_NAME = "Guichê da 30"
+APP_URL = "https://SEU-DOMINIO.com.br"
+SUPABASE_URL = "https://SEU-PROJETO.supabase.co"
+SUPABASE_ANON_KEY = "SUA_CHAVE_PUBLICAVEL_sb_publishable"
+TICKETMASTER_API_KEY = ""
+CF_ACCOUNT_ID = ""
+
+# Cadastre como secrets, nunca diretamente neste arquivo:
+# wrangler secret put SUPABASE_SECRET_KEY
+# wrangler secret put MERCADO_PAGO_ACCESS_TOKEN
+# wrangler secret put MERCADO_PAGO_WEBHOOK_SECRET
+# wrangler secret put BREVO_API_KEY
+# wrangler secret put BREVO_SENDER_EMAIL
+# wrangler secret put CF_BROWSER_API_TOKEN
