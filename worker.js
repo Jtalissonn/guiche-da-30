@@ -1,5 +1,5 @@
 // Cloudflare Builds conectado ao GitHub.
-const APP_VERSION = '1.2.1';
+const APP_VERSION = '1.2.2';
 const MATUE_TUIUTI_COVER = 'https://www.fundicaoprogresso.com.br/Admin/Content/Imagens/Release/20250526105735.jpg';
 const IMAGE_PROXY_HOSTS = ['eventim.com.br', 'ticketmaster.com', 'ticketmaster.com.br', 'tmol.io'];
 
@@ -645,7 +645,7 @@ body.admin-mode{--bg:#f1f3f6;--card:#fff;--line:#dfe3e8;--text:#15191f;--muted:#
 const IS_ADMIN_PATH=/^\/admin(?:\/|$)/.test(location.pathname);const S={events:[],session:null,client:null,current:null};const $=s=>document.querySelector(s);const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const brl=c=>(Number(c||0)/100).toLocaleString('pt-BR',{style:'currency',currency:'BRL'});const fmt=d=>new Date(d).toLocaleString('pt-BR',{dateStyle:'medium',timeStyle:'short'});const toast=m=>{const e=$('#toast');e.textContent=m;e.classList.remove('hidden');setTimeout(()=>e.classList.add('hidden'),3500)};
 const serviceFeeUi=c=>Number(c)<=5000?700:Math.ceil(Number(c)/5000)*500;
-const cleanText=value=>String(value??'').replaceAll('â€”','—').replaceAll('â€“','–').replaceAll('â€¢','•').replaceAll('Ãª','ê').replaceAll('Ã©','é').replaceAll('Ã£','ã').replaceAll('Ã¡','á').replaceAll('Ã³','ó').replaceAll('Ã­','í').replaceAll('Ãº','ú').replaceAll('Ã§','ç').replaceAll('Â','');
+const cleanText=value=>{let s=String(value??'');if(/[ÃÂâ]/.test(s)){try{const bytes=Uint8Array.from([...s].map(c=>c.charCodeAt(0)));const fixed=new TextDecoder().decode(bytes);if(!fixed.includes('�'))s=fixed}catch{}}return s.replaceAll('â€”','—').replaceAll('â€“','–').replaceAll('â€¢','•').replaceAll('Ãª','ê').replaceAll('Ã©','é').replaceAll('Ã£','ã').replaceAll('Ã¡','á').replaceAll('Ã³','ó').replaceAll('Ã­','í').replaceAll('Ãº','ú').replaceAll('Ã§','ç').replaceAll('Â','')};
 async function api(path,opt={}){const h=new Headers(opt.headers||{});if(S.session)h.set('authorization','Bearer '+S.session.access_token);if(opt.body&&typeof opt.body!=='string') {h.set('content-type','application/json');opt.body=JSON.stringify(opt.body)}const r=await fetch(path,{...opt,headers:h});const d=await r.json().catch(()=>({}));if(!r.ok)throw new Error(d.error||'Erro na solicitação');return d}
 function show(view){['home','account','admin'].forEach(x=>$('#'+x).classList.toggle('hidden',x!==view));scrollTo(0,0)}
 async function init(){if(IS_ADMIN_PATH){document.body.classList.remove('public-home');document.body.classList.add('admin-mode');document.title='Painel administrativo — Guichê da 30';$('#brandText').innerHTML='PAINEL <i>30</i>'}const c=await api('/api/config');S.client=supabase.createClient(c.supabaseUrl.trim(),c.supabaseAnonKey);const {data}=await S.client.auth.getSession();S.session=data.session;S.client.auth.onAuthStateChange((_e,s)=>{S.session=s});bind();if(IS_ADMIN_PATH){if(S.session)await openAdmin();else showAdminLogin()}else await loadEvents()}
