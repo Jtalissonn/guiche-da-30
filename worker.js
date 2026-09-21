@@ -399,7 +399,7 @@ async function routeAdmin(request, env, url) {
     const body = await requestJson(request);
 
 
-   const event = {
+ const event = {
       source: body.source || 'manual', source_event_id: body.source_event_id || crypto.randomUUID(),
       official_url: safeUrl(body.official_url), supplier_name: String(body.supplier_name || ''),
       title: String(body.title || ''), description: String(body.description || ''), image_url: safeUrl(body.image_url),
@@ -761,7 +761,7 @@ body.admin-mode{--bg:#f1f3f6;--card:#fff;--line:#dfe3e8;--text:#15191f;--muted:#
 const IS_ADMIN_PATH=/^\/admin(?:\/|$)/.test(location.pathname);const S={events:[],session:null,client:null,current:null};const $=s=>document.querySelector(s);const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const brl=c=>(Number(c||0)/100).toLocaleString('pt-BR',{style:'currency',currency:'BRL'});const fmt=d=>new Date(d).toLocaleString('pt-BR',{dateStyle:'medium',timeStyle:'short'});const toast=m=>{const e=$('#toast');e.textContent=m;e.classList.remove('hidden');setTimeout(()=>e.classList.add('hidden'),3500)};
 const serviceFeeUi=c=>Number(c)<=5000?700:Math.ceil(Number(c)/5000)*500;
-const cleanText=value=>{let s=String(value??'');if(/[ÃÃÃ¢]/.test(s)){try{const bytes=Uint8Array.from([...s].map(c=>c.charCodeAt(0)));const fixed=new TextDecoder().decode(bytes);if(!fixed.includes('ï¿½'))s=fixed}catch{}}return s.replaceAll('Ã¢â¬â','â').replaceAll('Ã¢â¬â','â').replaceAll('Ã¢â¬Â¢','â¢').replaceAll('ÃÂª','Ãª').replaceAll('ÃÂ©','Ã©').replaceAll('ÃÂ£','Ã£').replaceAll('ÃÂ¡','Ã¡').replaceAll('ÃÂ³','Ã³').replaceAll('ÃÂ­','Ã­').replaceAll('ÃÂº','Ãº').replaceAll('ÃÂ§','Ã§').replaceAll('Ã','')};
+const cleanText=value=>String(value??'');
 async function api(path,opt={}){const h=new Headers(opt.headers||{});if(S.session)h.set('authorization','Bearer '+S.session.access_token);if(opt.body&&typeof opt.body!=='string') {h.set('content-type','application/json');opt.body=JSON.stringify(opt.body)}const r=await fetch(path,{...opt,headers:h});const d=await r.json().catch(()=>({}));if(!r.ok)throw new Error(d.error||'Erro na solicitaÃ§Ã£o');return d}
 function show(view){['home','account','admin'].forEach(x=>$('#'+x).classList.toggle('hidden',x!==view));scrollTo(0,0)}
 async function init(){if(IS_ADMIN_PATH){document.body.classList.remove('public-home');document.body.classList.add('admin-mode');document.title='Painel administrativo â GuichÃª da 30';$('#brandText').innerHTML='PAINEL <i>30</i>'}const c=await api('/api/config');S.client=supabase.createClient(c.supabaseUrl.trim(),c.supabaseAnonKey);const {data}=await S.client.auth.getSession();S.session=data.session;S.client.auth.onAuthStateChange((_e,s)=>{S.session=s});bind();if(IS_ADMIN_PATH){if(S.session)await openAdmin();else showAdminLogin()}else await loadEvents()}
