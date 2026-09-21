@@ -7,19 +7,19 @@ const SEPTEMBER_EVENT_SEEDS = [
   {
     source_event_id: 'festa-do-chefe-sao-paulo-2026-09-25',
     official_url: 'https://blacktag.com.br/eventos/32995/festa-do-chefe',
-    supplier_name: 'Blacktag', title: 'Festa do Chefe \u2014 WIU, MC Hariel e MC Lele JP',
-    description: '30\u00AA edi\u00E7\u00E3o da Festa do Chefe. \u00C1rea VIP Open Bar Premium, evento open air. \u00C9 necess\u00E1rio levar um ecocopo ou adquirir um no local. O port\u00E3o fecha \u00E0s 02h30.',
+    supplier_name: 'Blacktag', title: 'Festa do Chefe — WIU, MC Hariel e MC Lele JP',
+    description: '30ª edição da Festa do Chefe. Área VIP Open Bar Premium, evento open air. É necessário levar um ecocopo ou adquirir um no local. O portão fecha às 02h30.',
     image_url: 'https://d106p58duwuiz5.cloudfront.net/event/cover/6f8d14b0832c38f933028c5be4ad8180.png',
     starts_at: '2026-09-25T21:00:00-03:00', ends_at: '2026-09-26T08:00:00-03:00',
-    venue_name: 'Est\u00E1dio do Canind\u00E9', address: 'Rua Comendador Nestor Pereira, 33, Canind\u00E9',
-    city: 'S\u00E3o Paulo', state: 'SP', age_rating: null,
+    venue_name: 'Estádio do Canindé', address: 'Rua Comendador Nestor Pereira, 33, Canindé',
+    city: 'São Paulo', state: 'SP', age_rating: null,
     lineup: ['WIU', 'MC Hariel', 'MC Lele JP'], matched_artists: ['WIU'],
   },
   {
     source_event_id: 'teto-uclub-novo-hamburgo-2026-09-25',
     official_url: 'https://baladapp.com.br/pt-BR/eventos/u-club-apresenta-teto/9357',
     supplier_name: 'BaladAPP by Ticketmaster', title: 'U Club Apresenta: TETO',
-    description: 'TETO na U Club. Pista com acesso ao club; mezanino com vista superior, bar exclusivo e acesso \u00E0 pista e ao club. Mezanino n\u00E3o inclui mesa.',
+    description: 'TETO na U Club. Pista com acesso ao club; mezanino com vista superior, bar exclusivo e acesso à pista e ao club. Mezanino não inclui mesa.',
     image_url: 'https://www.instagram.com/p/DcTuJZxxOC1/media/?size=l',
     starts_at: '2026-09-25T22:00:00-03:00', ends_at: null,
     venue_name: 'U Club', address: 'RS-239', city: 'Novo Hamburgo', state: 'RS',
@@ -28,11 +28,11 @@ const SEPTEMBER_EVENT_SEEDS = [
   {
     source_event_id: 'wiu-recife-2026-09-26',
     official_url: 'https://www.sympla.com.br/evento/swagg-v1-2026/3551630',
-    supplier_name: 'Sympla', title: 'Swagg v1.2026 \u2014 WIU',
-    description: 'Full Open Bar. WIU, Mau Lopes, Khad e DaMata. Documento original com foto obrigat\u00F3rio.',
+    supplier_name: 'Sympla', title: 'Swagg v1.2026 — WIU',
+    description: 'Full Open Bar. WIU, Mau Lopes, Khad e DaMata. Documento original com foto obrigatório.',
     image_url: 'https://images.sympla.com.br/6a8c544254427-lg.jpg',
     starts_at: '2026-09-26T23:00:00-03:00', ends_at: '2026-09-27T05:00:00-03:00',
-    venue_name: 'Cacha\u00E7aria Carvalheira', address: 'Avenida Sul Governador Cid Sampaio, 4921, Imbiribeira',
+    venue_name: 'Cachaçaria Carvalheira', address: 'Avenida Sul Governador Cid Sampaio, 4921, Imbiribeira',
     city: 'Recife', state: 'PE', age_rating: '18 anos', lineup: ['WIU', 'Mau Lopes', 'Khad', 'DaMata'], matched_artists: ['WIU'],
   },
 ];
@@ -52,15 +52,15 @@ function eventImage(event) {
   } catch { return null; }
   return image;
 }
-const APP_ICON_BASE64 = 'iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAACAAElEQVR42uz9eZxdV3Uljq997huqXs2SqjRag+UJ27KNAdvYGAOGYAabKQESCNCdJjQZIAmBBPgSMid0d0gngfwSIEN3pwM0kO4AgQDGNhgPGDwbz4MsayypVHPVG+456/vHnc4599xXsk0S+vP9CWRJNby6795z9tl77bXXEvzo/BLr73ySX9/vF5/k98sJ/vzstcV7Pf4b3Rc5wff9o/pLnsSz+9dYXyf6mifyTFjxvv6l3/Oav6IfwUXAJ/n18hR+hgT+LU9hgcpTvO5/ifshP+SfKz/k1/zXvP5/ywAma6yVH6mgXfsRu4lP9eTvF93lSUbnE7m2H8XTlj+kTfR/+0Y80SD6ww7afAprgT8KN0fwf0e6KE/ha4n/7/2Sf4FF/W9xrfw3umd8GuvsyZaP+P8HgLUfhlTc8BO9bvkRuflyApnEj2CV9UNdwPIULm6tzOupYCQn8gz4LxBE5ClmCv+fCQDyZFbxzp2Qk08GdAysrgK9HjA0DDSbwNIScOgQcPw4sLoKah14CjUIRgCMA2gAOAnAFIBlALMADgHoAOgCOAYgTr95LP3dTD/fS1/4qPX3H0UcRURQawKMgTj+l3jmfJLP1t3ASglAwrDqdeVJfvyHmYHI03j/oeDP/5s23L/mdUiOTowC2AE0h4EzR4HtA8C6EUCSZYLWIACBdE0ELRE0aohMF02JUY+AXgx0OmCnA0RREiRggIUh4LEuQAHYhJhBABHACIBKr8IoUBss1YCOgLIILCqACsAggIHkexCnm34VwGfTwGH9qtfrmJyckqGhFkQEKysr6BiDXrOJhXodRgTodjGgNRoAVjsdmHodupbCM0NDkOFhsNsFHnoIWFoiogjYulUwPg4ZGgKPHQOOHk3fIJIb1OkkC4x1SSLcQvLmRjYDrXWAagOzjwHtJf4LB4ETX2PjmwSt0eRedlaAlUME9Fobfa0M74R+vhKBAZKF1T+4PN1g6GcBP4zuxFM+xP/tA8AOAD0IzgHwfAiGQNwIYAXAC4GJV0BecR2w4yCg54G5w8DRfcCRu4H7F4HjaMBgc7pzBcAigBkieZw/TKCMPyJBlk8zbf1Rbhf+qJRrP6zrfzqbm0/x5/L/hgCQ/NzLAVwN4G4AOyEYAZUBpAfoWUA2gfwisO33gPknoM5/1Xhjy9nrmuMbGs2B4dqAaqpBUdJQkTRAaRqiKUpqSiGCIKJBzcSISIEwgomhtBEBlQgVdFeiODYRlDKRqvdMT2hiKBMbMBYo1IRGaaEygILRIrpD1euYSGsRgWgFZaih4i6VgtJK1WKjAR1TQAENI2oINJTRIAmjY4I6+TyMQCACiggBbYyhIUmATB8mBUJhksMn94+kooZJ/sqIoACggjKgUEQigMoknzAgJYkcAqUUASiTpNrJf5P/kEwCZxQpEUgUxzEI0SqKYiavleVBAgghSK+SioASQIHJtUAYawMDkkopKlEm+const TARGET_ARTISTS = [
-  { canonical: 'Matu\u00EA', aliases: ['matue', 'matu\u00EA'] },
+const APP_ICON_BASE64 = 'iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAACAAElEQVR42uz9eZxdV3Uljq997huqXs2SqjRag+UJ27KNAdvYGAOGYAabKQESCNCdJjQZIAmBBPgSMid0d0gngfwSIEN3pwM0kO4AgQDGNhgPGDwbz4MsayypVHPVG+456/vHnc4599xXsk0S+vP9CWRJNby6795z9tl77bXXEvzo/BLr73ySX9/vF5/k98sJ/vzstcV7Pf4b3Rc5wff9o/pLnsSz+9dYXyf6mifyTFjxvv6l3/Oav6IfwUXAJ/n18hR+hgT+LU9hgcpTvO5/ifshP+SfKz/k1/zXvP5/ywAma6yVH6mgXfsRu4lP9eTvF93lSUbnE7m2H8XTlj+kTfR/+0Y80SD6ww7afAprgT8KN0fwf0e6KE/ha4n/7/2Sf4FF/W9xrfw3umd8GuvsyZaP+P8HgLUfhlTc8BO9bvkRuflyApnEj2CV9UNdwPIULm6tzOupYCQn8gz4LxBE5ClmCv+fCQDyZFbxzp2Qk08GdAysrgK9HjA0DDSbwNIScOgQcPw4sLoKah14CjUIRgCMA2gAOAnAFIBlALMADgHoAOgCOAYgTr95LP3dTD/fS1/4qPX3H0UcRURQawKMgTj+l3jmfJLP1t3ASglAwrDqdeVJfvyHmYHI03j/oeDP/5s23L/mdUiOTowC2AE0h4EzR4HtA8C6EUCSZYLWIACBdE0ELRE0aohMF02JUY+AXgx0OmCnA0RREiRggIUh4LEuQAHYhJhBABHACIBKr8IoUBss1YCOgLIILCqACsAggIHkexCnm34VwGfTwGH9qtfrmJyckqGhFkQEKysr6BiDXrOJhXodRgTodjGgNRoAVjsdmHodupbCM0NDkOFhsNsFHnoIWFoiogjYulUwPg4ZGgKPHQOOHk3fIJIb1OkkC4x1SSLcQvLmRjYDrXWAagOzjwHtJf4LB4ETX2PjmwSt0eRedlaAlUME9Fobfa0M74R+vhKBAZKF1T+4PN1g6GcBP4zuxFM+xP/tA8AOAD0IzgHwfAiGQNwIYAXAC4GJV0BecR2w4yCg54G5w8DRfcCRu4H7F4HjaMBgc7pzBcAigBkieZw/TKCMPyJBlk8zbf1Rbhf+qJRrP6zrfzqbm0/x5/L/hgCQ/NzLAVwN4G4AOyEYAZUBpAfoWUA2gfwisO33gPknoM5/1Xhjy9nrmuMbGs2B4dqAaqpBUdJQkTRAaRqiKUpqSiGCIKJBzcSISIEwgomhtBEBlQgVdFeiODYRlDKRqvdMT2hiKBMbMBYo1IRGaaEygILRIrpD1euYSGsRgWgFZaih4i6VgtJK1WKjAR1TQAENI2oINJTRIAmjY4I6+TyMQCACiggBbYyhIUmATB8mBUJhksMn94+kooZJ/sqIoACggjKgUEQigMoknzAgJYkcAqUUASiTpNrJf5P/kEwCZxQpEUgUxzEI0SqKYiavleVBAgghSK+SioASQIHJtUAYawMDkkopKlEm+XrWBKwToDE0NAYiIhAomuQIFiUQpbRSkVYiJKlIo4whSLIWRSCgSApENARaQSgCGEJARiQUaSKAQkCD0MlLixBi0h9vQBCk0qRAIEqUEhEKRCdnK2FIMvnZEAUIRIuIBtBVUbREcInarHS1Xl5eXlx+/JFH2kcO7jMIc0VOdLPyhxwASpnCv12fVwH4aWDsvwBjbcjwDLD8KLjtoSHuu35Zvennz2tt2ja2eXAo2jk4oHYYo3e1e3p7z3Cd1hyFwUisORhrUzNaIqNZ0zHq2iAioWCotIH0eoTuArqnYHqAjiFGC2gEJhaJe1A6FppYDLsCExNGG5hYRBiJicUwFpKA0RDTo8Q9KmoQFNIQMCImJkAxSDYgaABjCBpAKBBCtCZokGzuZGkkmyfZRgISxpDJ9k9WMpFuO0DAdP+nd5Im+const TARGET_ARTISTS = [
+  { canonical: 'Matuê', aliases: ['matue', 'matuê'] },
   { canonical: 'Teto', aliases: ['teto'] },
   { canonical: 'WIU', aliases: ['wiu'] },
-  { canonical: 'Brand\u00E3o85', aliases: ['brandao', 'brand\u00E3o', 'brandao85', 'brand\u00E3o85'] },
+  { canonical: 'Brandão85', aliases: ['brandao', 'brandão', 'brandao85', 'brandão85'] },
 ];
 
 export function serviceFeeCents(priceCents) {
-  if (!Number.isFinite(priceCents) || priceCents < 0) throw new Error('Pre\u00E7o inv\u00E1lido');
+  if (!Number.isFinite(priceCents) || priceCents < 0) throw new Error('Preço inválido');
   if (priceCents <= 5000) return 700;
   return Math.ceil(priceCents / 5000) * 500;
 }
@@ -90,7 +90,7 @@ function requiredEnv(env) {
   if (!env.SUPABASE_SECRET_KEY && !env.SUPABASE_SERVICE_ROLE_KEY) {
     missing.push('SUPABASE_SECRET_KEY');
   }
-  if (missing.length) throw new Error(`Configura\u00E7\u00E3o ausente: ${missing.join(', ')}`);
+  if (missing.length) throw new Error(`Configuração ausente: ${missing.join(', ')}`);
 }
 
 async function requestJson(request) {
@@ -107,8 +107,8 @@ async function supabase(env, path, options = {}) {
     : env.SUPABASE_ANON_KEY;
   const headers = new Headers(options.headers || {});
   headers.set('apikey', key);
-  // As chaves novas sb_secret_/sb_publishable_ n\u00E3o s\u00E3o JWTs. A autoriza\u00E7\u00E3o
-  // Bearer s\u00F3 \u00E9 necess\u00E1ria para manter compatibilidade com as chaves antigas.
+  // As chaves novas sb_secret_/sb_publishable_ não são JWTs. A autorização
+  // Bearer só é necessária para manter compatibilidade com as chaves antigas.
   if (key.startsWith('eyJ')) headers.set('authorization', `Bearer ${key}`);
   if (options.body && !headers.has('content-type')) headers.set('content-type', 'application/json');
   const res = await fetch(`${env.SUPABASE_URL}${path}`, { ...options, headers });
@@ -147,14 +147,14 @@ async function seedSeptemberEvents(env) {
     headers: { Prefer: 'resolution=ignore-duplicates,return=minimal' },
     body: JSON.stringify([
       {
-        event_id: recife[0].id, name: '4\u00BA lote \u2014 feminino', category: 'open bar',
+        event_id: recife[0].id, name: '4º lote — feminino', category: 'open bar',
         supplier_price_cents: 26000, supplier_fee_cents: 2600, sale_status: 'disponivel',
-        benefit_requirements: 'Evento para maiores de 18 anos. Documento original com foto obrigat\u00F3rio.', last_verified_at: now,
+        benefit_requirements: 'Evento para maiores de 18 anos. Documento original com foto obrigatório.', last_verified_at: now,
       },
       {
-        event_id: recife[0].id, name: '5\u00BA lote \u2014 masculino', category: 'open bar',
+        event_id: recife[0].id, name: '5º lote — masculino', category: 'open bar',
         supplier_price_cents: 34000, supplier_fee_cents: 3400, sale_status: 'disponivel',
-        benefit_requirements: 'Evento para maiores de 18 anos. Documento original com foto obrigat\u00F3rio.', last_verified_at: now,
+        benefit_requirements: 'Evento para maiores de 18 anos. Documento original com foto obrigatório.', last_verified_at: now,
       },
     ]),
   });
@@ -162,9 +162,9 @@ async function seedSeptemberEvents(env) {
     method: 'POST',
     headers: { Prefer: 'resolution=ignore-duplicates,return=minimal' },
     body: JSON.stringify([{
-      event_id: festaDoChefe[0].id, name: '\u00C1rea VIP Open Bar Premium \u2014 5\u00BA lote', category: 'open bar',
+      event_id: festaDoChefe[0].id, name: 'Área VIP Open Bar Premium — 5º lote', category: 'open bar',
       supplier_price_cents: 25000, supplier_fee_cents: 3500, sale_status: 'disponivel',
-      benefit_requirements: '\u00C1rea VIP Open Bar Premium. \u00C9 necess\u00E1rio levar um ecocopo ou adquirir um no local.',
+      benefit_requirements: 'Área VIP Open Bar Premium. É necessário levar um ecocopo ou adquirir um no local.',
       last_verified_at: now,
     }]),
   });
@@ -173,15 +173,15 @@ async function seedSeptemberEvents(env) {
     headers: { Prefer: 'resolution=ignore-duplicates,return=minimal' },
     body: JSON.stringify([
       {
-        event_id: tetoUClub[0].id, name: 'Pista \u2014 2\u00BA lote', category: 'inteira',
+        event_id: tetoUClub[0].id, name: 'Pista — 2º lote', category: 'inteira',
         supplier_price_cents: 7000, supplier_fee_cents: 840, sale_status: 'disponivel',
-        benefit_requirements: 'Acesso \u00E0 pista principal e ao Club. Classifica\u00E7\u00E3o: 16 anos; menores de 18 anos somente acompanhados dos pais ou respons\u00E1vel legal/tutor, ou emancipados, com a documenta\u00E7\u00E3o exigida.',
+        benefit_requirements: 'Acesso à pista principal e ao Club. Classificação: 16 anos; menores de 18 anos somente acompanhados dos pais ou responsável legal/tutor, ou emancipados, com a documentação exigida.',
         last_verified_at: now,
       },
       {
-        event_id: tetoUClub[0].id, name: 'Mezanino \u2014 2\u00BA lote', category: 'inteira',
+        event_id: tetoUClub[0].id, name: 'Mezanino — 2º lote', category: 'inteira',
         supplier_price_cents: 12500, supplier_fee_cents: 1500, sale_status: 'disponivel',
-        benefit_requirements: 'Vista superior junto aos camarotes, bar exclusivo e acesso \u00E0 pista e ao Club. N\u00E3o inclui mesa. Classifica\u00E7\u00E3o: 16 anos; menores de 18 anos somente acompanhados dos pais ou respons\u00E1vel legal/tutor, ou emancipados, com a documenta\u00E7\u00E3o exigida.',
+        benefit_requirements: 'Vista superior junto aos camarotes, bar exclusivo e acesso à pista e ao Club. Não inclui mesa. Classificação: 16 anos; menores de 18 anos somente acompanhados dos pais ou responsável legal/tutor, ou emancipados, com a documentação exigida.',
         last_verified_at: now,
       },
     ]),
@@ -204,7 +204,7 @@ async function getUser(request, env) {
   const res = await fetch(`${env.SUPABASE_URL}/auth/v1/user`, {
     headers: { apikey: env.SUPABASE_ANON_KEY, authorization },
   });
-  if (!res.ok) throw new Response('Sess\u00E3o inv\u00E1lida ou expirada.', { status: 401 });
+  if (!res.ok) throw new Response('Sessão inválida ou expirada.', { status: 401 });
   return res.json();
 }
 
@@ -230,9 +230,9 @@ function safeUrl(value) {
 }
 
 async function sendBrevo(env, { to, subject, html, attachment }) {
-  if (!env.BREVO_API_KEY || !env.BREVO_SENDER_EMAIL) throw new Error('Brevo ainda n\u00E3o configurado');
+  if (!env.BREVO_API_KEY || !env.BREVO_SENDER_EMAIL) throw new Error('Brevo ainda não configurado');
   const body = {
-    sender: { name: env.APP_NAME || 'Guich\u00EA da 30', email: env.BREVO_SENDER_EMAIL },
+    sender: { name: env.APP_NAME || 'Guichê da 30', email: env.BREVO_SENDER_EMAIL },
     to: [{ email: to }], subject, htmlContent: html,
   };
   if (attachment) body.attachment = [attachment];
@@ -247,11 +247,11 @@ async function sendBrevo(env, { to, subject, html, attachment }) {
 const money = cents => (Number(cents || 0) / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
 async function emailOrder(env, userEmail, order, kind, ticketUrl) {
-  const name = env.APP_NAME || 'Guich\u00EA da 30';
+  const name = env.APP_NAME || 'Guichê da 30';
   const content = {
-    paid: [`Pagamento confirmado \u2014 ${name}`, `Seu pagamento do pedido <b>${order.id}</b> foi aprovado. Estamos comprando seu ingresso. O envio acontecer\u00E1 em at\u00E9 1 hora.`],
-    preparing: [`Estamos preparando seu ingresso`, `Seu pedido <b>${order.id}</b> est\u00E1 sendo comprado no fornecedor oficial.`],
-    delivered: [`Seu ingresso chegou \u2014 ${name}`, `Seu ingresso do pedido <b>${order.id}</b> est\u00E1 dispon\u00EDvel. ${ticketUrl ? `<p><a href="${ticketUrl}">Abrir ingresso com seguran\u00E7a</a></p>` : ''}<p>Ele tamb\u00E9m ficar\u00E1 em <b>Meus ingressos</b>.</p>`],
+    paid: [`Pagamento confirmado — ${name}`, `Seu pagamento do pedido <b>${order.id}</b> foi aprovado. Estamos comprando seu ingresso. O envio acontecerá em até 1 hora.`],
+    preparing: [`Estamos preparando seu ingresso`, `Seu pedido <b>${order.id}</b> está sendo comprado no fornecedor oficial.`],
+    delivered: [`Seu ingresso chegou — ${name}`, `Seu ingresso do pedido <b>${order.id}</b> está disponível. ${ticketUrl ? `<p><a href="${ticketUrl}">Abrir ingresso com segurança</a></p>` : ''}<p>Ele também ficará em <b>Meus ingressos</b>.</p>`],
   }[kind];
   if (!content) return;
   await sendBrevo(env, { to: userEmail, subject: content[0], html: `<div style="font-family:Arial;max-width:600px"><h1>${name}</h1><p>${content[1]}</p><p>Valor: <b>${money(order.total_cents)}</b></p></div>` });
@@ -259,7 +259,7 @@ async function emailOrder(env, userEmail, order, kind, ticketUrl) {
 
 async function routePublic(request, env, url) {
   if (url.pathname === '/api/config') return json({
-    appName: env.APP_NAME || 'Guich\u00EA da 30',
+    appName: env.APP_NAME || 'Guichê da 30',
     supabaseUrl: env.SUPABASE_URL || '', supabaseAnonKey: env.SUPABASE_ANON_KEY || '', version: APP_VERSION,
   });
 
@@ -291,7 +291,7 @@ async function routePublic(request, env, url) {
     const id = url.pathname.split('/').pop();
     const rows = await supabase(env, `/rest/v1/tickets?id=eq.${id}&user_id=eq.${user.id}&select=*`);
     const ticket = rows[0];
-    if (!ticket) return errorResponse('Ingresso n\u00E3o encontrado.', 404);
+    if (!ticket) return errorResponse('Ingresso não encontrado.', 404);
     if (ticket.external_url) return json({ url: ticket.external_url });
     const signed = await supabase(env, `/storage/v1/object/sign/tickets/${ticket.storage_path}`, {
       method: 'POST', body: JSON.stringify({ expiresIn: 300 }),
@@ -313,16 +313,16 @@ async function routePublic(request, env, url) {
   }
 
   if (url.pathname === '/api/checkout' && request.method === 'POST') {
-    if (!env.MERCADO_PAGO_ACCESS_TOKEN) return errorResponse('Pagamento ainda n\u00E3o configurado.', 503);
+    if (!env.MERCADO_PAGO_ACCESS_TOKEN) return errorResponse('Pagamento ainda não configurado.', 503);
     const user = await getUser(request, env);
     const body = await requestJson(request);
     const quantity = Math.min(6, Math.max(1, Number(body.quantity || 1)));
     const optionRows = await supabase(env, `/rest/v1/ticket_options?id=eq.${body.ticket_option_id}&select=*,events(*)`);
     const option = optionRows[0];
     if (!option || option.sale_status !== 'disponivel' || option.events?.paused || option.events?.review_status !== 'aprovado') {
-      return errorResponse('Este ingresso n\u00E3o est\u00E1 dispon\u00EDvel no momento.', 409, 'not_available');
+      return errorResponse('Este ingresso não está disponível no momento.', 409, 'not_available');
     }
-    if (option.available_quantity != null && option.available_quantity < quantity) return errorResponse('Quantidade indispon\u00EDvel.', 409);
+    if (option.available_quantity != null && option.available_quantity < quantity) return errorResponse('Quantidade indisponível.', 409);
     const unitTicket = option.displayed_price_cents;
     const unitFee = serviceFeeCents(unitTicket);
     const ticketTotal = unitTicket * quantity;
@@ -349,8 +349,8 @@ async function routePublic(request, env, url) {
       body: JSON.stringify({
         external_reference: order.id,
         items: [
-          { id: option.id, title: `${option.events.title} \u2014 ${option.name}`, quantity, currency_id: 'BRL', unit_price: unitTicket / 100 },
-          { id: `service-${order.id}`, title: 'Taxa de servi\u00E7o', quantity, currency_id: 'BRL', unit_price: unitFee / 100 },
+          { id: option.id, title: `${option.events.title} — ${option.name}`, quantity, currency_id: 'BRL', unit_price: unitTicket / 100 },
+          { id: `service-${order.id}`, title: 'Taxa de serviço', quantity, currency_id: 'BRL', unit_price: unitFee / 100 },
         ],
         payer: { email: user.email },
         back_urls: { success: `${env.APP_URL}/?payment=success`, pending: `${env.APP_URL}/?payment=pending`, failure: `${env.APP_URL}/?payment=failure` },
@@ -361,7 +361,7 @@ async function routePublic(request, env, url) {
     });
     if (!preferenceRes.ok) {
       await supabase(env, `/rest/v1/orders?id=eq.${order.id}`, { method: 'PATCH', headers: { Prefer: 'return=minimal' }, body: JSON.stringify({ status: 'cancelado', payment_status: 'preference_error' }) });
-      return errorResponse('N\u00E3o foi poss\u00EDvel iniciar o pagamento.', 502, 'payment_provider_error');
+      return errorResponse('Não foi possível iniciar o pagamento.', 502, 'payment_provider_error');
     }
     const preference = await preferenceRes.json();
     await supabase(env, `/rest/v1/orders?id=eq.${order.id}`, { method: 'PATCH', headers: { Prefer: 'return=minimal' }, body: JSON.stringify({ mercado_pago_preference_id: preference.id }) });
@@ -441,7 +441,7 @@ async function routeAdmin(request, env, url) {
     const body = await requestJson(request);
     const allowed = ['title','description','image_url','starts_at','ends_at','venue_name','address','city','state','age_rating','lineup','review_status','paused','official_url','supplier_name','verification_error'];
     const update = Object.fromEntries(Object.entries(body).filter(([k]) => allowed.includes(k)));
-    if (update.official_url && !safeUrl(update.official_url)) return errorResponse('Link oficial inv\u00E1lido.');
+    if (update.official_url && !safeUrl(update.official_url)) return errorResponse('Link oficial inválido.');
     await supabase(env, `/rest/v1/events?id=eq.${eventMatch[1]}`, { method: 'PATCH', headers: { Prefer: 'return=minimal' }, body: JSON.stringify(update) });
     await audit(env, user.id, 'event_updated', 'event', eventMatch[1], update);
     return json({ ok: true });
@@ -474,7 +474,7 @@ async function routeAdmin(request, env, url) {
   if (orderMatch && request.method === 'PATCH') {
     const body = await requestJson(request);
     const allowedStatus = ['pagamento_aprovado','comprando_ingresso','ingresso_disponivel','ingresso_entregue','cancelado','reembolsado'];
-    if (!allowedStatus.includes(body.status)) return errorResponse('Status inv\u00E1lido.');
+    if (!allowedStatus.includes(body.status)) return errorResponse('Status inválido.');
     const update = { status: body.status };
     if (body.status === 'comprando_ingresso') update.purchase_started_at = new Date().toISOString();
     if (body.status === 'ingresso_entregue') update.delivered_at = new Date().toISOString();
@@ -490,14 +490,14 @@ async function routeAdmin(request, env, url) {
 
   const refundMatch = url.pathname.match(/^\/api\/admin\/orders\/([0-9a-f-]+)\/refund$/);
   if (refundMatch && request.method === 'POST') {
-    if (!env.MERCADO_PAGO_ACCESS_TOKEN) return errorResponse('Mercado Pago n\u00E3o configurado.', 503);
+    if (!env.MERCADO_PAGO_ACCESS_TOKEN) return errorResponse('Mercado Pago não configurado.', 503);
     const orders = await supabase(env, `/rest/v1/orders?id=eq.${refundMatch[1]}&select=*`);
     const order = orders[0];
-    if (!order?.mercado_pago_payment_id) return errorResponse('Este pedido n\u00E3o possui pagamento confirmado.', 409);
+    if (!order?.mercado_pago_payment_id) return errorResponse('Este pedido não possui pagamento confirmado.', 409);
     const res = await fetch(`https://api.mercadopago.com/v1/payments/${order.mercado_pago_payment_id}/refunds`, {
       method: 'POST', headers: { authorization: `Bearer ${env.MERCADO_PAGO_ACCESS_TOKEN}`, 'content-type': 'application/json', 'x-idempotency-key': `refund-${order.id}` }, body: '{}',
     });
-    if (!res.ok) return errorResponse('O Mercado Pago n\u00E3o aceitou o reembolso.', 502);
+    if (!res.ok) return errorResponse('O Mercado Pago não aceitou o reembolso.', 502);
     await supabase(env, `/rest/v1/orders?id=eq.${order.id}`, { method: 'PATCH', headers: { Prefer: 'return=minimal' }, body: JSON.stringify({ status: 'reembolsado', payment_status: 'refunded' }) });
     await audit(env, user.id, 'order_refunded', 'order', order.id);
     return json({ ok: true });
@@ -515,9 +515,9 @@ async function routeAdmin(request, env, url) {
     const body = await requestJson(request);
     const orders = await supabase(env, `/rest/v1/orders?id=eq.${body.order_id}&select=*`);
     const order = orders[0];
-    if (!order) return errorResponse('Pedido n\u00E3o encontrado.', 404);
+    if (!order) return errorResponse('Pedido não encontrado.', 404);
     const external = body.kind === 'link' ? safeUrl(body.external_url) : null;
-    if (body.kind === 'link' && !external) return errorResponse('Link inv\u00E1lido.');
+    if (body.kind === 'link' && !external) return errorResponse('Link inválido.');
     const rows = await supabase(env, '/rest/v1/tickets?select=*', { method: 'POST', headers: { Prefer: 'return=representation' }, body: JSON.stringify({
       order_id: order.id, user_id: order.user_id, kind: body.kind === 'link' ? 'link' : (body.kind === 'image' ? 'image' : 'file'),
       storage_path: body.storage_path || null, external_url: external, original_filename: body.original_filename || null,
@@ -538,7 +538,7 @@ async function routeAdmin(request, env, url) {
     const body = await requestJson(request);
     const rows = await supabase(env, `/rest/v1/tickets?id=eq.${body.ticket_id}&select=*,orders(*)`);
     const ticket = rows[0];
-    if (!ticket) return errorResponse('Ingresso n\u00E3o encontrado.', 404);
+    if (!ticket) return errorResponse('Ingresso não encontrado.', 404);
     const userData = await supabase(env, `/auth/v1/admin/users/${ticket.user_id}`);
     let ticketUrl = ticket.external_url;
     if (!ticketUrl && ticket.storage_path) {
@@ -549,7 +549,7 @@ async function routeAdmin(request, env, url) {
     await audit(env, user.id, 'ticket_resent', 'ticket', ticket.id);
     return json({ ok: true });
   }
-  return errorResponse('Rota administrativa n\u00E3o encontrada.', 404);
+  return errorResponse('Rota administrativa não encontrada.', 404);
 }
 
 async function verifyMercadoPagoSignature(request, env, dataId) {
@@ -570,9 +570,9 @@ async function verifyMercadoPagoSignature(request, env, dataId) {
 async function handleMercadoPago(request, env, url) {
   const body = await request.json().catch(() => ({}));
   const dataId = String(body?.data?.id || url.searchParams.get('data.id') || '');
-  if (!dataId || !(await verifyMercadoPagoSignature(request, env, dataId))) return errorResponse('Assinatura inv\u00E1lida.', 401);
+  if (!dataId || !(await verifyMercadoPagoSignature(request, env, dataId))) return errorResponse('Assinatura inválida.', 401);
   const res = await fetch(`https://api.mercadopago.com/v1/payments/${encodeURIComponent(dataId)}`, { headers: { authorization: `Bearer ${env.MERCADO_PAGO_ACCESS_TOKEN}` } });
-  if (!res.ok) return errorResponse('Pagamento n\u00E3o localizado.', 502);
+  if (!res.ok) return errorResponse('Pagamento não localizado.', 502);
   const payment = await res.json();
   const orderId = payment.external_reference;
   if (!orderId) return json({ ok: true });
@@ -628,7 +628,7 @@ export function parseJsonLdEvents(html, sourceUrl, supplierName) {
           matched_artists: artists, review_status: 'pendente', last_verified_at: new Date().toISOString(),
         });
       }
-    } catch { /* ignora JSON-LD inv\u00E1lido da origem */ }
+    } catch { /* ignora JSON-LD inválido da origem */ }
   }
   return out;
 }
@@ -705,32 +705,32 @@ export default {
       }
       if (url.pathname === '/event-image') {
         const source = safeUrl(url.searchParams.get('url'));
-        if (!source) return errorResponse('Imagem inv\u00E1lida.', 400);
+        if (!source) return errorResponse('Imagem inválida.', 400);
         const host = new URL(source).hostname.toLowerCase();
-        if (!IMAGE_PROXY_HOSTS.some(allowed => host === allowed || host.endsWith(`.${allowed}`))) return errorResponse('Origem de imagem n\u00E3o permitida.', 403);
+        if (!IMAGE_PROXY_HOSTS.some(allowed => host === allowed || host.endsWith(`.${allowed}`))) return errorResponse('Origem de imagem não permitida.', 403);
         const image = await fetch(source, { headers: { 'user-agent': 'Mozilla/5.0 GuicheDa30/1.1', accept: 'image/avif,image/webp,image/png,image/jpeg,*/*', referer: `https://${host}/` } });
-        if (!image.ok) return errorResponse('Imagem indispon\u00EDvel.', 502);
+        if (!image.ok) return errorResponse('Imagem indisponível.', 502);
         return new Response(image.body, { headers: { 'content-type': image.headers.get('content-type') || 'image/jpeg', 'cache-control': 'public, max-age=86400' } });
       }
       if (url.pathname === '/manifest.webmanifest') return json({
-        id: '/', name: env.APP_NAME || 'Guich\u00EA da 30', short_name: 'Guich\u00EA 30', start_url: '/', scope: '/', display: 'standalone',
+        id: '/', name: env.APP_NAME || 'Guichê da 30', short_name: 'Guichê 30', start_url: '/', scope: '/', display: 'standalone',
         background_color: '#080909', theme_color: '#c8ff35',
         icons: [{ src: '/app-icon.png', sizes: '256x256', type: 'image/png', purpose: 'any maskable' }],
       }, 200, { 'cache-control': 'public, max-age=86400' });
       if (url.pathname === '/admin-manifest.webmanifest') return json({
-        id: '/admin', name: 'Painel administrativo \u2014 Guich\u00EA da 30', short_name: 'Painel 30', start_url: '/admin', scope: '/admin', display: 'standalone',
+        id: '/admin', name: 'Painel administrativo — Guichê da 30', short_name: 'Painel 30', start_url: '/admin', scope: '/admin', display: 'standalone',
         background_color: '#f1f3f6', theme_color: '#0b0d0d',
         icons: [{ src: '/app-icon.png', sizes: '256x256', type: 'image/png', purpose: 'any maskable' }],
       }, 200, { 'cache-control': 'public, max-age=300' });
       if (url.pathname === '/webhooks/mercadopago' && request.method === 'POST') return handleMercadoPago(request, env, url);
       const admin = await routeAdmin(request, env, url); if (admin) return admin;
       const pub = await routePublic(request, env, url); if (pub) return pub;
-      if (url.pathname.startsWith('/api/')) return errorResponse('Rota n\u00E3o encontrada.', 404);
+      if (url.pathname.startsWith('/api/')) return errorResponse('Rota não encontrada.', 404);
       const isAdminPage = /^\/admin(?:\/|$)/.test(url.pathname);
       const pageHtml = isAdminPage
-        ? APP_HTML.replace('<title>Guich\u00EA da 30 \u2014 Ingressos</title>', '<title>Painel administrativo \u2014 Guich\u00EA da 30</title>').replace('href="/manifest.webmanifest"', 'href="/admin-manifest.webmanifest"')
+        ? APP_HTML.replace('<title>Guichê da 30 — Ingressos</title>', '<title>Painel administrativo — Guichê da 30</title>').replace('href="/manifest.webmanifest"', 'href="/admin-manifest.webmanifest"')
         : APP_HTML;
-      return new Response(pageHtml, { headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store, max-age=0', 'content-security-policy': "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https:; font-src 'self' data:; frame-src https://www.mercadopago.com.br" } });
+      return new Response(pageHtml, { headers: { 'content-type': 'text/html; charset=UTF-8', 'cache-control': 'no-store, max-age=0', 'content-security-policy': "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https:; font-src 'self' data:; frame-src https://www.mercadopago.com.br" } });
     } catch (error) {
       if (error instanceof Response) return error;
       console.error(error);
@@ -742,23 +742,23 @@ export default {
 
 const APP_HTML = String.raw`<!doctype html>
 <html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Guich\u00EA da 30 \u2014 Ingressos</title><meta name="description" content="Ingressos para shows de Matu\u00EA, Teto, WIU e Brand\u00E3o85."><meta name="theme-color" content="#c8ff35"><link rel="icon" type="image/png" href="/app-icon.png"><link rel="apple-touch-icon" href="/app-icon.png"><link rel="manifest" href="/manifest.webmanifest">
+<title>Guich&#234; da 30 &#8212; Ingressos</title><meta name="description" content="Ingressos para shows de Matu&#234;, Teto, WIU e Brand&#227;o85."><meta name="theme-color" content="#c8ff35"><link rel="icon" type="image/png" href="/app-icon.png"><link rel="apple-touch-icon" href="/app-icon.png"><link rel="manifest" href="/manifest.webmanifest">
 <style>
 :root{--bg:#080909;--card:#121414;--line:#262a28;--text:#f5f7f5;--muted:#9ba39d;--brand:#c8ff35;--brand2:#81a800;--danger:#ff5b57;--warn:#ffbd2e;--ok:#35d07f;--radius:20px}*{box-sizing:border-box}html{background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif}body{margin:0;min-height:100vh;background:radial-gradient(circle at 80% -10%,#23300d 0,transparent 28%),var(--bg)}button,input,select,textarea{font:inherit}button{cursor:pointer}.wrap{width:min(1180px,calc(100% - 28px));margin:auto}header{position:sticky;top:0;z-index:20;background:#080909e8;backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}nav{height:72px;display:flex;align-items:center;gap:18px}.logo{font-weight:950;font-size:22px;letter-spacing:-1px;display:flex;align-items:center;gap:10px}.logo i{font-style:normal;color:var(--brand)}.brand-icon{width:40px;height:40px;border-radius:12px;object-fit:cover}.spacer{flex:1}.navbtn,.btn{border:0;border-radius:999px;padding:11px 16px;background:#1b1e1c;color:var(--text);font-weight:750}.btn.primary{background:var(--brand);color:#111}.btn.danger{background:#3b1818;color:#ffb2af}.hero{padding:54px 0 30px}.eyebrow{color:var(--brand);font-weight:850;text-transform:uppercase;letter-spacing:2px;font-size:12px}.hero h1{font-size:clamp(40px,7vw,82px);line-height:.91;letter-spacing:-4px;margin:14px 0;max-width:820px}.hero p{color:var(--muted);font-size:18px;max-width:600px}.filters{display:grid;grid-template-columns:1fr 150px 160px;gap:10px;margin:28px 0}.field{width:100%;border:1px solid var(--line);background:#111312;color:var(--text);padding:14px 16px;border-radius:14px;outline:none}.field:focus{border-color:var(--brand)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding-bottom:70px}.card{overflow:hidden;border:1px solid var(--line);border-radius:var(--radius);background:var(--card);transition:.2s}.card:hover{transform:translateY(-3px);border-color:#4b5730}.cover{aspect-ratio:16/10;width:100%;object-fit:cover;background:#20231f}.cardbody{padding:17px}.tag{display:inline-flex;border:1px solid #3b4725;color:var(--brand);border-radius:999px;padding:6px 9px;font-size:11px;font-weight:800;text-transform:uppercase}.card h3{font-size:21px;line-height:1.05;margin:12px 0 8px}.meta{color:var(--muted);font-size:14px}.price{font-size:18px;font-weight:850;margin-top:15px}.empty{grid-column:1/-1;color:var(--muted);padding:60px 0;text-align:center}.modal{position:fixed;inset:0;z-index:50;background:#000b;display:none;align-items:flex-end;justify-content:center}.modal.on{display:flex}.sheet{width:min(760px,100%);max-height:94vh;overflow:auto;background:#101211;border:1px solid var(--line);border-radius:28px 28px 0 0;padding:24px}.sheethead{display:flex;gap:15px;align-items:center}.close{margin-left:auto;background:#292d2a;border:0;color:#fff;width:38px;height:38px;border-radius:50%}.option{border:1px solid var(--line);border-radius:16px;padding:15px;margin:10px 0;display:grid;grid-template-columns:1fr auto;gap:8px}.option.off{opacity:.55}.option strong{font-size:17px}.status{font-size:12px;color:var(--muted)}.notice{border-left:3px solid var(--brand);background:#1a1e16;padding:13px;border-radius:8px;color:#d9ddd8;margin:16px 0}.authbox{display:grid;gap:10px}.tabs{display:flex;gap:8px;margin-bottom:14px}.tabs button.active{background:var(--brand);color:#111}.ticket-tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0 16px}.ticket-tabs .btn{border:1px solid var(--line);border-radius:14px}.ticket-tabs .btn.active{background:var(--brand);border-color:var(--brand);color:#111}.account{padding:30px 0 70px}.order{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:12px 0}.orderline{display:flex;justify-content:space-between;gap:14px;align-items:center}.pill{font-size:11px;font-weight:850;text-transform:uppercase;padding:7px 9px;border-radius:999px;background:#252925}.pill.ok{color:var(--ok)}.pill.warn{color:var(--warn)}.admin-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.metric{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px}.metric b{display:block;font-size:22px}.metric span{color:var(--muted);font-size:12px}.hidden{display:none!important}.toast{position:fixed;right:14px;bottom:20px;z-index:100;background:#232724;border:1px solid #3a403c;padding:14px 17px;border-radius:13px;max-width:330px;box-shadow:0 12px 40px #0008}.admin-order{display:grid;grid-template-columns:1.3fr 1fr auto;gap:12px;align-items:center}.small{font-size:12px;color:var(--muted)}footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:13px}
-.public-home{position:relative;overflow-x:hidden;overflow-y:visible;min-height:100%;touch-action:pan-y}.public-home:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.13;background-image:linear-gradient(#baff2420 1px,transparent 1px),linear-gradient(90deg,#baff2420 1px,transparent 1px);background-size:56px 56px;mask-image:linear-gradient(to bottom,#000,transparent 75%)}header{border-bottom-color:#baff2426}nav{height:68px}.hero{padding:68px 0 24px}.hero-row{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);gap:32px;align-items:end}.hero h1{max-width:720px;margin:10px 0 0;font-size:clamp(52px,7vw,92px);text-transform:uppercase;line-height:.82;letter-spacing:-5px}.hero h1 span{color:var(--brand);text-shadow:0 0 34px #baff2438}.hero p{margin:0 0 6px;max-width:420px;font-size:17px;line-height:1.55}.filters{grid-template-columns:minmax(0,1fr) 180px;margin:30px 0 18px}.field{min-height:50px;background:#0e100f;border-color:#2c312e}.events-head{display:flex;align-items:end;justify-content:space-between;margin:24px 0 16px}.events-head h2{margin:0;font-size:24px;letter-spacing:-.8px}.event-count{font-size:12px;color:var(--muted);font-weight:800;text-transform:uppercase;letter-spacing:1px}.grid{gap:20px}.card{position:relative;background:linear-gradient(145deg,#151816,#0d0f0e);border-color:#2a2f2c;box-shadow:0 18px 50px #0004}.poster{position:relative;overflow:hidden}.cover{display:block;aspect-ratio:16/10;transition:transform .35s ease}.event-placeholder{display:flex;align-items:flex-end;justify-content:flex-start;padding:20px;background:radial-gradient(circle at 80% 20%,#c8ff3540,transparent 32%),linear-gradient(145deg,#25320f,#090b09);color:#fff;font-weight:950;text-transform:uppercase;letter-spacing:-1px}.event-placeholder span{max-width:85%;font-size:clamp(20px,4vw,34px);line-height:.92}.event-thumb.event-placeholder{padding:10px}.event-thumb.event-placeholder span{font-size:15px}.card:hover .cover{transform:scale(1.025)}.date-chip{position:absolute;left:12px;top:12px;width:54px;padding:8px 5px;border-radius:14px;background:#070908e8;border:1px solid #ffffff20;text-align:center;backdrop-filter:blur(12px)}.date-chip b{display:block;color:var(--brand);font-size:20px;line-height:1}.date-chip span{display:block;margin-top:3px;color:#fff;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:1px}.cardbody{padding:18px}.card h3{font-size:25px;letter-spacing:-.7px;margin:10px 0 8px}.card .price{display:flex;align-items:center;justify-content:space-between}.card .price:after{content:"Ver ingressos \u2192";color:var(--brand);font-size:12px}.modal{background:#000d;backdrop-filter:blur(6px);overscroll-behavior:contain}.sheet{width:min(720px,100%);max-height:min(94vh,calc(100dvh - env(safe-area-inset-top)));overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;touch-action:pan-y;background:#0d0f0e;border-color:#343a36;box-shadow:0 -28px 90px #000c}.event-top{display:grid;grid-template-columns:118px 1fr;gap:16px;align-items:center;margin-bottom:18px;flex:1;min-width:0}.event-thumb{width:118px;aspect-ratio:16/10;object-fit:cover;border-radius:14px;border:1px solid var(--line)}.event-top h2{font-size:30px;line-height:1;margin:6px 0}.ticket-tabs{position:sticky;top:-24px;z-index:3;background:#0d0f0ef2;padding:10px 0}.ticket-tabs .btn{min-height:46px}.option{align-items:center;background:#111412;border-color:#2b302d;margin:8px 0;padding:14px}.option strong{font-size:16px}.option-price{text-align:right;white-space:nowrap}.option-price b{font-size:17px}.option .small{max-width:440px;margin-top:5px;line-height:1.35}.compact-note{display:flex;gap:9px;align-items:flex-start;color:#c7cec9;font-size:13px;margin:14px 0}.compact-note b{color:var(--brand)}.cart-summary{border:1px solid var(--line);border-radius:16px;padding:14px;background:#111412}.cart-row{display:flex;justify-content:space-between;gap:14px;padding:7px 0}.cart-row.total{border-top:1px solid var(--line);margin-top:6px;padding-top:13px;font-size:18px;font-weight:900}.admin-event-image{width:100%;max-height:220px;object-fit:cover;border-radius:16px;border:1px solid var(--line);background:#e8ece9}footer{padding:22px 0}.footer-row{display:flex;justify-content:space-between;gap:16px;align-items:center}.footer-row p{margin:0}.footer-dot{color:var(--brand)}
+.public-home{position:relative;overflow-x:hidden;overflow-y:visible;min-height:100%;touch-action:pan-y}.public-home:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.13;background-image:linear-gradient(#baff2420 1px,transparent 1px),linear-gradient(90deg,#baff2420 1px,transparent 1px);background-size:56px 56px;mask-image:linear-gradient(to bottom,#000,transparent 75%)}header{border-bottom-color:#baff2426}nav{height:68px}.hero{padding:68px 0 24px}.hero-row{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);gap:32px;align-items:end}.hero h1{max-width:720px;margin:10px 0 0;font-size:clamp(52px,7vw,92px);text-transform:uppercase;line-height:.82;letter-spacing:-5px}.hero h1 span{color:var(--brand);text-shadow:0 0 34px #baff2438}.hero p{margin:0 0 6px;max-width:420px;font-size:17px;line-height:1.55}.filters{grid-template-columns:minmax(0,1fr) 180px;margin:30px 0 18px}.field{min-height:50px;background:#0e100f;border-color:#2c312e}.events-head{display:flex;align-items:end;justify-content:space-between;margin:24px 0 16px}.events-head h2{margin:0;font-size:24px;letter-spacing:-.8px}.event-count{font-size:12px;color:var(--muted);font-weight:800;text-transform:uppercase;letter-spacing:1px}.grid{gap:20px}.card{position:relative;background:linear-gradient(145deg,#151816,#0d0f0e);border-color:#2a2f2c;box-shadow:0 18px 50px #0004}.poster{position:relative;overflow:hidden}.cover{display:block;aspect-ratio:16/10;transition:transform .35s ease}.event-placeholder{display:flex;align-items:flex-end;justify-content:flex-start;padding:20px;background:radial-gradient(circle at 80% 20%,#c8ff3540,transparent 32%),linear-gradient(145deg,#25320f,#090b09);color:#fff;font-weight:950;text-transform:uppercase;letter-spacing:-1px}.event-placeholder span{max-width:85%;font-size:clamp(20px,4vw,34px);line-height:.92}.event-thumb.event-placeholder{padding:10px}.event-thumb.event-placeholder span{font-size:15px}.card:hover .cover{transform:scale(1.025)}.date-chip{position:absolute;left:12px;top:12px;width:54px;padding:8px 5px;border-radius:14px;background:#070908e8;border:1px solid #ffffff20;text-align:center;backdrop-filter:blur(12px)}.date-chip b{display:block;color:var(--brand);font-size:20px;line-height:1}.date-chip span{display:block;margin-top:3px;color:#fff;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:1px}.cardbody{padding:18px}.card h3{font-size:25px;letter-spacing:-.7px;margin:10px 0 8px}.card .price{display:flex;align-items:center;justify-content:space-between}.card .price:after{content:"Ver ingressos \2192 ";color:var(--brand);font-size:12px}.modal{background:#000d;backdrop-filter:blur(6px);overscroll-behavior:contain}.sheet{width:min(720px,100%);max-height:min(94vh,calc(100dvh - env(safe-area-inset-top)));overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;touch-action:pan-y;background:#0d0f0e;border-color:#343a36;box-shadow:0 -28px 90px #000c}.event-top{display:grid;grid-template-columns:118px 1fr;gap:16px;align-items:center;margin-bottom:18px;flex:1;min-width:0}.event-thumb{width:118px;aspect-ratio:16/10;object-fit:cover;border-radius:14px;border:1px solid var(--line)}.event-top h2{font-size:30px;line-height:1;margin:6px 0}.ticket-tabs{position:sticky;top:-24px;z-index:3;background:#0d0f0ef2;padding:10px 0}.ticket-tabs .btn{min-height:46px}.option{align-items:center;background:#111412;border-color:#2b302d;margin:8px 0;padding:14px}.option strong{font-size:16px}.option-price{text-align:right;white-space:nowrap}.option-price b{font-size:17px}.option .small{max-width:440px;margin-top:5px;line-height:1.35}.compact-note{display:flex;gap:9px;align-items:flex-start;color:#c7cec9;font-size:13px;margin:14px 0}.compact-note b{color:var(--brand)}.cart-summary{border:1px solid var(--line);border-radius:16px;padding:14px;background:#111412}.cart-row{display:flex;justify-content:space-between;gap:14px;padding:7px 0}.cart-row.total{border-top:1px solid var(--line);margin-top:6px;padding-top:13px;font-size:18px;font-weight:900}.admin-event-image{width:100%;max-height:220px;object-fit:cover;border-radius:16px;border:1px solid var(--line);background:#e8ece9}footer{padding:22px 0}.footer-row{display:flex;justify-content:space-between;gap:16px;align-items:center}.footer-row p{margin:0}.footer-dot{color:var(--brand)}
 body.admin-mode{--bg:#f1f3f6;--card:#fff;--line:#dfe3e8;--text:#15191f;--muted:#59636f;--brand:#91c900;background:#f1f3f6;color:var(--text)}body.admin-mode header{background:#0b0d0d;border-bottom:3px solid #c8ff35}body.admin-mode .logo{color:#fff}body.admin-mode .navbtn{background:#232726;color:#fff}body.admin-mode .btn{background:#e9edf1;color:#15191f;border:1px solid #d4dae1}body.admin-mode .btn.primary{background:var(--brand);color:#111;border-color:var(--brand)}body.admin-mode .btn.danger{background:#fde2e1;color:#8f2420;border-color:#f4c2c0}body.admin-mode .option .btn{background:#20252a;color:#fff;border-color:#20252a}body.admin-mode footer{display:none}body.admin-mode #admin{padding-top:38px}body.admin-mode .metric{box-shadow:0 6px 20px #2631400b;border:0;border-top:4px solid #c8ff35}body.admin-mode .metric b{font-size:26px}body.admin-mode .order{box-shadow:0 4px 18px #2631400a}body.admin-mode .field{background:#fff;color:#15191f}body.admin-mode .notice{background:#edf5d9;color:#344119}body.admin-mode .sheet{background:#fff;color:#15191f}body.admin-mode .eyebrow,body.admin-mode a{color:#537500!important}body.admin-mode .pill{background:#e9eee7;color:#263128}body.admin-mode .toast{color:#fff}body.admin-mode .admin-login{max-width:460px;margin:60px auto;border:0;padding:28px;box-shadow:0 18px 60px #2631401c}body.admin-mode .admin-login-icon{width:84px;height:84px;border-radius:22px;display:block;margin-bottom:18px}body.admin-mode h1{letter-spacing:-1.5px}
 @media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}.admin-grid{grid-template-columns:repeat(2,1fr)}.admin-order{grid-template-columns:1fr}.hero-row{grid-template-columns:1fr}.hero p{max-width:560px}.hero h1{letter-spacing:-3px}.filters{grid-template-columns:1fr 150px}}@media(max-width:540px){nav{height:62px}.navbtn{padding:9px 12px;font-size:13px}.brand-icon{width:36px;height:36px}.hero{padding:42px 0 12px}.hero h1{font-size:50px;letter-spacing:-2.5px}.hero p{font-size:15px}.grid{grid-template-columns:1fr}.filters{grid-template-columns:1fr}.sheet{padding:18px}.event-top{grid-template-columns:88px 1fr}.event-thumb{width:88px}.event-top h2{font-size:24px}.admin-grid{grid-template-columns:1fr 1fr}.footer-row{align-items:flex-start;flex-direction:column}.card h3{font-size:23px}}
 </style></head><body class="public-home">
-<header><nav class="wrap"><div class="logo"><img class="brand-icon" src="/app-icon.png" alt=""><span id="brandText">GUICH\u00CA DA <i>30</i></span></div><div class="spacer"></div><button class="navbtn" id="homeBtn">Eventos</button><button class="navbtn" id="accountBtn">Minha conta</button></nav></header>
-<main id="home"><section class="hero wrap"><div class="eyebrow">Trap ao vivo \u2022 ingressos verificados</div><div class="hero-row"><h1>Seu show.<br><span>No corre.</span></h1><p>Escolha o evento, pague online e acompanhe tudo pela sua conta.</p></div><div class="filters"><input class="field" id="search" placeholder="Buscar artista, cidade ou casa de show"><select class="field" id="state"><option value="">Todo o Brasil</option></select></div></section><section class="wrap"><div class="events-head"><h2>Pr\u00F3ximos shows</h2><span class="event-count" id="eventCount"></span></div><div class="grid" id="events"><div class="empty">Carregando eventos\u2026</div></div></section></main>
+<header><nav class="wrap"><div class="logo"><img class="brand-icon" src="/app-icon.png" alt=""><span id="brandText">GUICH&#202; DA <i>30</i></span></div><div class="spacer"></div><button class="navbtn" id="homeBtn">Eventos</button><button class="navbtn" id="accountBtn">Minha conta</button></nav></header>
+<main id="home"><section class="hero wrap"><div class="eyebrow">Trap ao vivo &#8226; ingressos verificados</div><div class="hero-row"><h1>Seu show.<br><span>No corre.</span></h1><p>Escolha o evento, pague online e acompanhe tudo pela sua conta.</p></div><div class="filters"><input class="field" id="search" placeholder="Buscar artista, cidade ou casa de show"><select class="field" id="state"><option value="">Todo o Brasil</option></select></div></section><section class="wrap"><div class="events-head"><h2>Pr&#243;ximos shows</h2><span class="event-count" id="eventCount"></span></div><div class="grid" id="events"><div class="empty">Carregando eventos&#8230;</div></div></section></main>
 <main id="account" class="wrap account hidden"></main><main id="admin" class="wrap account hidden"></main>
-<footer><div class="wrap footer-row"><b>Guich\u00EA da 30 <span class="footer-dot">\u2022</span> Trap ao vivo</b><p>Compra acompanhada do pagamento \u00E0 entrega.</p></div></footer>
+<footer><div class="wrap footer-row"><b>Guich&#234; da 30 <span class="footer-dot">&#8226;</span> Trap ao vivo</b><p>Compra acompanhada do pagamento &#224; entrega.</p></div></footer>
 <div class="modal" id="modal"><div class="sheet" id="sheet"></div></div><div id="toast" class="toast hidden"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
 const IS_ADMIN_PATH=/^\/admin(?:\/|$)/.test(location.pathname);const S={events:[],session:null,client:null,current:null};const $=s=>document.querySelector(s);const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const brl=c=>(Number(c||0)/100).toLocaleString('pt-BR',{style:'currency',currency:'BRL'});const fmt=d=>new Date(d).toLocaleString('pt-BR',{dateStyle:'medium',timeStyle:'short'});const toast=m=>{const e=$('#toast');e.textContent=m;e.classList.remove('hidden');setTimeout(()=>e.classList.add('hidden'),3500)};
 const serviceFeeUi=c=>Number(c)<=5000?700:Math.ceil(Number(c)/5000)*500;
-const cleanText=value=>{let s=String(value??'');if(/[\u00C3\u00C2\u00E2]/.test(s)){try{const bytes=Uint8Array.from([...s].map(c=>c.charCodeAt(0)));const fixed=new TextDecoder().decode(bytes);if(!fixed.includes('\uFFFD'))s=fixed}catch{}}return s.replaceAll('\u00E2\u20AC\u201D','\u2014').replaceAll('\u00E2\u20AC\u201C','\u2013').replaceAll('\u00E2\u20AC\u00A2','\u2022').replaceAll('\u00C3\u00AA','\u00EA').replaceAll('\u00C3\u00A9','\u00E9').replaceAll('\u00C3\u00A3','\u00E3').replaceAll('\u00C3\u00A1','\u00E1').replaceAll('\u00C3\u00B3','\u00F3').replaceAll('\u00C3\u00AD','\u00ED').replaceAll('\u00C3\u00BA','\u00FA').replaceAll('\u00C3\u00A7','\u00E7').replaceAll('\u00C2','')};
+const cleanText=value=>String(value??'');
 async function api(path,opt={}){const h=new Headers(opt.headers||{});if(S.session)h.set('authorization','Bearer '+S.session.access_token);if(opt.body&&typeof opt.body!=='string') {h.set('content-type','application/json');opt.body=JSON.stringify(opt.body)}const r=await fetch(path,{...opt,headers:h});const d=await r.json().catch(()=>({}));if(!r.ok)throw new Error(d.error||'Erro na solicita\u00E7\u00E3o');return d}
 function show(view){['home','account','admin'].forEach(x=>$('#'+x).classList.toggle('hidden',x!==view));scrollTo(0,0)}
 async function init(){if(IS_ADMIN_PATH){document.body.classList.remove('public-home');document.body.classList.add('admin-mode');document.title='Painel administrativo \u2014 Guich\u00EA da 30';$('#brandText').innerHTML='PAINEL <i>30</i>'}const c=await api('/api/config');S.client=supabase.createClient(c.supabaseUrl.trim(),c.supabaseAnonKey);const {data}=await S.client.auth.getSession();S.session=data.session;S.client.auth.onAuthStateChange((_e,s)=>{S.session=s});bind();if(IS_ADMIN_PATH){if(S.session)await openAdmin();else showAdminLogin()}else await loadEvents()}
