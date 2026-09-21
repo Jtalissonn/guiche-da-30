@@ -1,5 +1,5 @@
-// Cloudflare Builds conectado ao GitHub.
-const APP_VERSION = '1.4.9';
+ Cloudflare Builds conectado ao GitHub.
+const APP_VERSION = '1.5.0';
 const MATUE_TUIUTI_COVER = 'https://www.fundicaoprogresso.com.br/Admin/Content/Imagens/Release/20250526105735.jpg';
 const IMAGE_PROXY_HOSTS = ['eventim.com.br', 'ticketmaster.com', 'ticketmaster.com.br', 'tmol.io'];
 
@@ -398,7 +398,8 @@ async function routeAdmin(request, env, url) {
   if (url.pathname === '/api/admin/events' && request.method === 'POST') {
     const body = await requestJson(request);
 
-  const event = {
+
+    const event = {
       source: body.source || 'manual', source_event_id: body.source_event_id || crypto.randomUUID(),
       official_url: safeUrl(body.official_url), supplier_name: String(body.supplier_name || ''),
       title: String(body.title || ''), description: String(body.description || ''), image_url: safeUrl(body.image_url),
@@ -798,3 +799,5 @@ async function deliver(orderId){$('#sheet').innerHTML='<div class="sheethead"><h
 function showAdminLogin(message=''){show('admin');$('#accountBtn').classList.add('hidden');$('#admin').innerHTML='<div class="order admin-login"><img class="admin-login-icon" src="/app-icon.png" alt="GuichÃª da 30"><div class="eyebrow">Central de operaÃ§Ã£o</div><h1>Painel administrativo</h1><p class="meta">Acesso exclusivo da equipe do GuichÃª da 30.</p>'+(message?'<div class="notice">'+esc(message)+'</div>':'')+'<div class="authbox"><input class="field" id="adminEmail" type="email" placeholder="E-mail do administrador"><input class="field" id="adminPassword" type="password" placeholder="Senha"><button class="btn primary" id="adminLogin">Entrar no painel</button></div></div>';$('#adminLogin').onclick=async()=>{const r=await S.client.auth.signInWithPassword({email:$('#adminEmail').value,password:$('#adminPassword').value});if(r.error)return toast(r.error.message);S.session=r.data.session;$('#accountBtn').classList.remove('hidden');openAdmin()}}
 window.closeModal=closeModal;window.checkoutStart=checkoutStart;window.setTicketTab=setTicketTab;window.approveEvent=approveEvent;window.deliver=deliver;window.openTicket=openTicket;window.setOrderStatus=setOrderStatus;window.refundOrder=refundOrder;window.manageEvent=manageEvent;window.newEvent=newEvent;window.submitNewEvent=submitNewEvent;window.saveEventImageUrl=saveEventImageUrl;window.uploadEventImage=uploadEventImage;window.addOption=addOption;window.toggleEvent=toggleEvent;window.toggleOption=toggleOption;init();
 </script></body></html>`;
+
+  
