@@ -1,33 +1,9 @@
 // Cloudflare Builds conectado ao GitHub.
-const APP_VERSION = '1.4.1';
+const APP_VERSION = '1.4.2';
 const MATUE_TUIUTI_COVER = 'https://www.fundicaoprogresso.com.br/Admin/Content/Imagens/Release/20250526105735.jpg';
 const IMAGE_PROXY_HOSTS = ['eventim.com.br', 'ticketmaster.com', 'ticketmaster.com.br', 'tmol.io'];
 
 const SEPTEMBER_EVENT_SEEDS = [
-  {
-    source_event_id: 'teto-novo-hamburgo-2026-09-25',
-    official_url: 'https://baladapp.com.br/pt-BR/eventos/u-club-apresenta-teto/9357',
-    supplier_name: 'BaladAPP', title: 'U Club Apresenta: TETO',
-    description: 'Show confirmado. Valores oficiais ainda não publicados no Guichê da 30.',
-    starts_at: '2026-09-25T22:00:00-03:00', venue_name: 'U Club', address: 'RS 239, 1760',
-    city: 'Novo Hamburgo', state: 'RS', age_rating: '16 anos', lineup: ['Teto'], matched_artists: ['Teto'],
-  },
-  {
-    source_event_id: 'teto-sao-jose-de-piranhas-2026-09-26',
-    official_url: 'https://www.instagram.com/micaranhasoficial/',
-    supplier_name: 'Micaranhas', title: 'TETO — Micaranhas 2026',
-    description: '[horario_a_confirmar] Pista mediante troca antecipada de 1 kg de alimento não perecível. Camarote e horário ainda precisam de confirmação oficial.',
-    starts_at: '2026-09-26T12:00:00-03:00', venue_name: 'Micaranhas 2026',
-    city: 'São José de Piranhas', state: 'PB', lineup: ['Teto'], matched_artists: ['Teto'],
-  },
-  {
-    source_event_id: 'wiu-sao-paulo-2026-09-25',
-    official_url: 'https://www.30praum.com/',
-    supplier_name: 'Venda oficial a confirmar', title: 'WIU — São Paulo',
-    description: '[horario_a_confirmar] Show informado para São Paulo. Local, horário e valores aguardando confirmação oficial.',
-    starts_at: '2026-09-25T12:00:00-03:00', venue_name: 'Local a confirmar',
-    city: 'São Paulo', state: 'SP', lineup: ['WIU'], matched_artists: ['WIU'],
-  },
   {
     source_event_id: 'wiu-recife-2026-09-26',
     official_url: 'https://www.sympla.com.br/evento/swagg-v1-2026/3551630',
@@ -37,30 +13,6 @@ const SEPTEMBER_EVENT_SEEDS = [
     starts_at: '2026-09-26T23:00:00-03:00', ends_at: '2026-09-27T05:00:00-03:00',
     venue_name: 'Cachaçaria Carvalheira', address: 'Avenida Sul Governador Cid Sampaio, 4921, Imbiribeira',
     city: 'Recife', state: 'PE', age_rating: '18 anos', lineup: ['WIU', 'Mau Lopes', 'Khad', 'DaMata'], matched_artists: ['WIU'],
-  },
-  {
-    source_event_id: 'matue-duque-de-caxias-2026-09-25',
-    official_url: 'https://www.instagram.com/matue/',
-    supplier_name: 'Venda oficial a confirmar', title: 'Matuê — Duque de Caxias',
-    description: '[horario_a_confirmar] Show informado para Duque de Caxias. Local, horário e valores aguardando confirmação oficial.',
-    starts_at: '2026-09-25T12:00:00-03:00', venue_name: 'Local a confirmar',
-    city: 'Duque de Caxias', state: 'RJ', lineup: ['Matuê'], matched_artists: ['Matuê'],
-  },
-  {
-    source_event_id: 'matue-penha-2026-09-25',
-    official_url: 'https://www.instagram.com/matue/',
-    supplier_name: 'Venda oficial a confirmar', title: 'Matuê — Penha',
-    description: '[horario_a_confirmar] Show informado para Penha. Local, horário e valores aguardando confirmação oficial.',
-    starts_at: '2026-09-25T12:30:00-03:00', venue_name: 'Local a confirmar',
-    city: 'Penha', state: 'RJ', lineup: ['Matuê'], matched_artists: ['Matuê'],
-  },
-  {
-    source_event_id: 'matue-londrina-2026-09-26',
-    official_url: 'https://www.instagram.com/matue/',
-    supplier_name: 'Venda oficial a confirmar', title: 'Matuê — Londrina',
-    description: '[horario_a_confirmar] Show informado para Londrina. Local, horário e valores aguardando confirmação oficial.',
-    starts_at: '2026-09-26T12:30:00-03:00', venue_name: 'Local a confirmar',
-    city: 'Londrina', state: 'PR', lineup: ['Matuê'], matched_artists: ['Matuê'],
   },
 ];
 
@@ -154,6 +106,8 @@ async function seedSeptemberEvents(env) {
   const now = new Date().toISOString();
   const events = SEPTEMBER_EVENT_SEEDS.map(event => ({
     source: 'guiche_agenda_confirmada', review_status: 'aprovado', paused: false,
+    description: '', image_url: null, ends_at: null, venue_name: '', address: '',
+    city: '', state: '', age_rating: null, lineup: [], matched_artists: [],
     last_verified_at: now, ...event,
   }));
   await supabase(env, '/rest/v1/events?on_conflict=source,source_event_id', {
