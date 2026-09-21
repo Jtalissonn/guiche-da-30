@@ -1,9 +1,20 @@
 // Cloudflare Builds conectado ao GitHub.
-const APP_VERSION = '1.4.2';
+const APP_VERSION = '1.4.3';
 const MATUE_TUIUTI_COVER = 'https://www.fundicaoprogresso.com.br/Admin/Content/Imagens/Release/20250526105735.jpg';
 const IMAGE_PROXY_HOSTS = ['eventim.com.br', 'ticketmaster.com', 'ticketmaster.com.br', 'tmol.io'];
 
 const SEPTEMBER_EVENT_SEEDS = [
+  {
+    source_event_id: 'festa-do-chefe-sao-paulo-2026-09-25',
+    official_url: 'https://blacktag.com.br/eventos/32995/festa-do-chefe',
+    supplier_name: 'Blacktag', title: 'Festa do Chefe — WIU, MC Hariel e MC Lele JP',
+    description: '30ª edição da Festa do Chefe. Área VIP Open Bar Premium, evento open air. É necessário levar um ecocopo ou adquirir um no local. O portão fecha às 02h30.',
+    image_url: 'https://d106p58duwuiz5.cloudfront.net/event/cover/6f8d14b0832c38f933028c5be4ad8180.png',
+    starts_at: '2026-09-25T21:00:00-03:00', ends_at: '2026-09-26T08:00:00-03:00',
+    venue_name: 'Estádio do Canindé', address: 'Rua Comendador Nestor Pereira, 33, Canindé',
+    city: 'São Paulo', state: 'SP', age_rating: null,
+    lineup: ['WIU', 'MC Hariel', 'MC Lele JP'], matched_artists: ['WIU'],
+  },
   {
     source_event_id: 'wiu-recife-2026-09-26',
     official_url: 'https://www.sympla.com.br/evento/swagg-v1-2026/3551630',
@@ -116,24 +127,35 @@ async function seedSeptemberEvents(env) {
     body: JSON.stringify(events),
   });
 
-  const recife = await supabase(env, '/rest/v1/events?source=eq.guiche_agenda_confirmada&source_event_id=eq.wiu-recife-2026-09-26&select=id');
-  if (!recife?.[0]?.id) return;
-  const eventId = recife[0].id;
-  await supabase(env, '/rest/v1/ticket_options?on_conflict=event_id,name,category', {
+  const [recife, festaDoChefe] = await Promise.all([
+    supabase(env, '/rest/v1/events?source=eq.guiche_agenda_confirmada&source_event_id=eq.wiu-recife-2026-09-26&select=id'),
+    supabase(env, '/rest/v1/events?source=eq.guiche_agenda_confirmada&source_event_id=eq.festa-do-chefe-sao-paulo-2026-09-25&select=id'),
+  ]);
+  if (recife?.[0]?.id) await supabase(env, '/rest/v1/ticket_options?on_conflict=event_id,name,category', {
     method: 'POST',
     headers: { Prefer: 'resolution=ignore-duplicates,return=minimal' },
     body: JSON.stringify([
       {
-        event_id: eventId, name: '4º lote — feminino', category: 'open bar',
+        event_id: recife[0].id, name: '4º lote — feminino', category: 'open bar',
         supplier_price_cents: 26000, supplier_fee_cents: 2600, sale_status: 'disponivel',
         benefit_requirements: 'Evento para maiores de 18 anos. Documento original com foto obrigatório.', last_verified_at: now,
       },
       {
-        event_id: eventId, name: '5º lote — masculino', category: 'open bar',
+        event_id: recife[0].id, name: '5º lote — masculino', category: 'open bar',
         supplier_price_cents: 34000, supplier_fee_cents: 3400, sale_status: 'disponivel',
         benefit_requirements: 'Evento para maiores de 18 anos. Documento original com foto obrigatório.', last_verified_at: now,
       },
     ]),
+  });
+  if (festaDoChefe?.[0]?.id) await supabase(env, '/rest/v1/ticket_options?on_conflict=event_id,name,category', {
+    method: 'POST',
+    headers: { Prefer: 'resolution=ignore-duplicates,return=minimal' },
+    body: JSON.stringify([{
+      event_id: festaDoChefe[0].id, name: 'Área VIP Open Bar Premium — 5º lote', category: 'open bar',
+      supplier_price_cents: 25000, supplier_fee_cents: 3500, sale_status: 'disponivel',
+      benefit_requirements: 'Área VIP Open Bar Premium. É necessário levar um ecocopo ou adquirir um no local.',
+      last_verified_at: now,
+    }]),
   });
 }
 
