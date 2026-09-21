@@ -1,5 +1,5 @@
 // Cloudflare Builds conectado ao GitHub.
-const APP_VERSION = '1.4.6';
+const APP_VERSION = '1.4.7';
 const MATUE_TUIUTI_COVER = 'https://www.fundicaoprogresso.com.br/Admin/Content/Imagens/Release/20250526105735.jpg';
 const IMAGE_PROXY_HOSTS = ['eventim.com.br', 'ticketmaster.com', 'ticketmaster.com.br', 'tmol.io'];
 
@@ -396,7 +396,7 @@ async function routeAdmin(request, env, url) {
   }
 
   if (url.pathname === '/api/admin/events' && request.method === 'POST') {
-    const body = await requestJson(const event = {
+    const body = await requestJson(request); const event = {
       source: body.source || 'manual', source_event_id: body.source_event_id || crypto.randomUUID(),
       official_url: safeUrl(body.official_url), supplier_name: String(body.supplier_name || ''),
       title: String(body.title || ''), description: String(body.description || ''), image_url: safeUrl(body.image_url),
@@ -758,7 +758,7 @@ body.admin-mode{--bg:#f1f3f6;--card:#fff;--line:#dfe3e8;--text:#15191f;--muted:#
 const IS_ADMIN_PATH=/^\/admin(?:\/|$)/.test(location.pathname);const S={events:[],session:null,client:null,current:null};const $=s=>document.querySelector(s);const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const brl=c=>(Number(c||0)/100).toLocaleString('pt-BR',{style:'currency',currency:'BRL'});const fmt=d=>new Date(d).toLocaleString('pt-BR',{dateStyle:'medium',timeStyle:'short'});const toast=m=>{const e=$('#toast');e.textContent=m;e.classList.remove('hidden');setTimeout(()=>e.classList.add('hidden'),3500)};
 const serviceFeeUi=c=>Number(c)<=5000?700:Math.ceil(Number(c)/5000)*500;
-const cleanText=value=>String(value??'').replaceAll('\u00e2\u20ac\u201d','â').replaceAll('\u00e2\u20ac\u201c','â').replaceAll('\u00e2\u20ac\u00a2','â¢').replaceAll('\u00c3\u00aa','Ãª').replaceAll('\u00c3\u00a9','Ã©').replaceAll('\u00c3\u00a3','Ã£').replaceAll('\u00c3\u00a1','Ã¡').replaceAll('\u00c3\u00b3','Ã³').replaceAll('\u00c3\u00ad','Ã­').replaceAll('\u00c3\u00ba','Ãº').replaceAll('\u00c3\u00a7','Ã§').replaceAll('\u00c2','');if(/[ÃÃÃ¢]/.test(s)){try{const bytes=Uint8Array.from([...s].map(c=>c.charCodeAt(0)));const fixed=new TextDecoder().decode(bytes);if(!fixed.includes('ï¿½'))s=fixed}catch{}}return s.replaceAll('Ã¢â¬â','â').replaceAll('Ã¢â¬â','â').replaceAll('Ã¢â¬Â¢','â¢').replaceAll('ÃÂª','Ãª').replaceAll('ÃÂ©','Ã©').replaceAll('ÃÂ£','Ã£').replaceAll('ÃÂ¡','Ã¡').replaceAll('ÃÂ³','Ã³').replaceAll('ÃÂ­','Ã­').replaceAll('ÃÂº','Ãº').replaceAll('ÃÂ§','Ã§').replaceAll('Ã','')};
+const cleanText=value=>{let s=String(value??'');const fixes=[['Ã¢â¬â','â'],['Ã¢â¬â','â'],['Ã¢â¬Â¢','â¢'],['Ã¢â¬Å','â'],['Ã¢â¬Â','â'],['Ã¢â¬â¢','â'],['ÃÂª','Ãª'],['ÃÂ©','Ã©'],['ÃÂ£','Ã£'],['ÃÂ¡','Ã¡'],['ÃÂ³','Ã³'],['ÃÂ­','Ã­'],['ÃÂº','Ãº'],['ÃÂ§','Ã§'],['ÃÂ´','Ã´'],['ÃÂµ','Ãµ'],['Ãâ°','Ã'],['ÃÅ ','Ã'],['Ãâ¡','Ã'],['Ã','']];for(const[a,b]of fixes)s=s.split(a).join(b);return s};
 async function api(path,opt={}){const h=new Headers(opt.headers||{});if(S.session)h.set('authorization','Bearer '+S.session.access_token);if(opt.body&&typeof opt.body!=='string') {h.set('content-type','application/json');opt.body=JSON.stringify(opt.body)}const r=await fetch(path,{...opt,headers:h});const d=await r.json().catch(()=>({}));if(!r.ok)throw new Error(d.error||'Erro na solicitaÃ§Ã£o');return d}
 function show(view){['home','account','admin'].forEach(x=>$('#'+x).classList.toggle('hidden',x!==view));scrollTo(0,0)}
 async function init(){if(IS_ADMIN_PATH){document.body.classList.remove('public-home');document.body.classList.add('admin-mode');document.title='Painel administrativo â GuichÃª da 30';$('#brandText').innerHTML='PAINEL <i>30</i>'}const c=await api('/api/config');S.client=supabase.createClient(c.supabaseUrl.trim(),c.supabaseAnonKey);const {data}=await S.client.auth.getSession();S.session=data.session;S.client.auth.onAuthStateChange((_e,s)=>{S.session=s});bind();if(IS_ADMIN_PATH){if(S.session)await openAdmin();else showAdminLogin()}else await loadEvents()}
@@ -796,5 +796,3 @@ async function deliver(orderId){$('#sheet').innerHTML='<div class="sheethead"><h
 function showAdminLogin(message=''){show('admin');$('#accountBtn').classList.add('hidden');$('#admin').innerHTML='<div class="order admin-login"><img class="admin-login-icon" src="/app-icon.png" alt="GuichÃª da 30"><div class="eyebrow">Central de operaÃ§Ã£o</div><h1>Painel administrativo</h1><p class="meta">Acesso exclusivo da equipe do GuichÃª da 30.</p>'+(message?'<div class="notice">'+esc(message)+'</div>':'')+'<div class="authbox"><input class="field" id="adminEmail" type="email" placeholder="E-mail do administrador"><input class="field" id="adminPassword" type="password" placeholder="Senha"><button class="btn primary" id="adminLogin">Entrar no painel</button></div></div>';$('#adminLogin').onclick=async()=>{const r=await S.client.auth.signInWithPassword({email:$('#adminEmail').value,password:$('#adminPassword').value});if(r.error)return toast(r.error.message);S.session=r.data.session;$('#accountBtn').classList.remove('hidden');openAdmin()}}
 window.closeModal=closeModal;window.checkoutStart=checkoutStart;window.setTicketTab=setTicketTab;window.approveEvent=approveEvent;window.deliver=deliver;window.openTicket=openTicket;window.setOrderStatus=setOrderStatus;window.refundOrder=refundOrder;window.manageEvent=manageEvent;window.newEvent=newEvent;window.submitNewEvent=submitNewEvent;window.saveEventImageUrl=saveEventImageUrl;window.uploadEventImage=uploadEventImage;window.addOption=addOption;window.toggleEvent=toggleEvent;window.toggleOption=toggleOption;init();
 </script></body></html>`;
-
-  
