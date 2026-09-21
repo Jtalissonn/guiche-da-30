@@ -1,5 +1,5 @@
 // Cloudflare Builds conectado ao GitHub.
-const APP_VERSION = '1.4.3';
+const APP_VERSION = '1.4.4';
 const MATUE_TUIUTI_COVER = 'https://www.fundicaoprogresso.com.br/Admin/Content/Imagens/Release/20250526105735.jpg';
 const IMAGE_PROXY_HOSTS = ['eventim.com.br', 'ticketmaster.com', 'ticketmaster.com.br', 'tmol.io'];
 
@@ -14,6 +14,16 @@ const SEPTEMBER_EVENT_SEEDS = [
     venue_name: 'Estádio do Canindé', address: 'Rua Comendador Nestor Pereira, 33, Canindé',
     city: 'São Paulo', state: 'SP', age_rating: null,
     lineup: ['WIU', 'MC Hariel', 'MC Lele JP'], matched_artists: ['WIU'],
+  },
+  {
+    source_event_id: 'teto-uclub-novo-hamburgo-2026-09-25',
+    official_url: 'https://baladapp.com.br/pt-BR/eventos/u-club-apresenta-teto/9357',
+    supplier_name: 'BaladAPP by Ticketmaster', title: 'U Club Apresenta: TETO',
+    description: 'TETO na U Club. Pista com acesso ao club; mezanino com vista superior, bar exclusivo e acesso à pista e ao club. Mezanino não inclui mesa.',
+    image_url: 'https://www.instagram.com/p/DcTuJZxxOC1/media/?size=l',
+    starts_at: '2026-09-25T22:00:00-03:00', ends_at: null,
+    venue_name: 'U Club', address: 'RS-239', city: 'Novo Hamburgo', state: 'RS',
+    age_rating: '16 anos', lineup: ['TETO'], matched_artists: ['Teto'],
   },
   {
     source_event_id: 'wiu-recife-2026-09-26',
@@ -127,9 +137,10 @@ async function seedSeptemberEvents(env) {
     body: JSON.stringify(events),
   });
 
-  const [recife, festaDoChefe] = await Promise.all([
+  const [recife, festaDoChefe, tetoUClub] = await Promise.all([
     supabase(env, '/rest/v1/events?source=eq.guiche_agenda_confirmada&source_event_id=eq.wiu-recife-2026-09-26&select=id'),
     supabase(env, '/rest/v1/events?source=eq.guiche_agenda_confirmada&source_event_id=eq.festa-do-chefe-sao-paulo-2026-09-25&select=id'),
+    supabase(env, '/rest/v1/events?source=eq.guiche_agenda_confirmada&source_event_id=eq.teto-uclub-novo-hamburgo-2026-09-25&select=id'),
   ]);
   if (recife?.[0]?.id) await supabase(env, '/rest/v1/ticket_options?on_conflict=event_id,name,category', {
     method: 'POST',
@@ -156,6 +167,24 @@ async function seedSeptemberEvents(env) {
       benefit_requirements: 'Área VIP Open Bar Premium. É necessário levar um ecocopo ou adquirir um no local.',
       last_verified_at: now,
     }]),
+  });
+  if (tetoUClub?.[0]?.id) await supabase(env, '/rest/v1/ticket_options?on_conflict=event_id,name,category', {
+    method: 'POST',
+    headers: { Prefer: 'resolution=ignore-duplicates,return=minimal' },
+    body: JSON.stringify([
+      {
+        event_id: tetoUClub[0].id, name: 'Pista — 2º lote', category: 'inteira',
+        supplier_price_cents: 7000, supplier_fee_cents: 840, sale_status: 'disponivel',
+        benefit_requirements: 'Acesso à pista principal e ao Club. Classificação: 16 anos; menores de 18 anos somente acompanhados dos pais ou responsável legal/tutor, ou emancipados, com a documentação exigida.',
+        last_verified_at: now,
+      },
+      {
+        event_id: tetoUClub[0].id, name: 'Mezanino — 2º lote', category: 'inteira',
+        supplier_price_cents: 12500, supplier_fee_cents: 1500, sale_status: 'disponivel',
+        benefit_requirements: 'Vista superior junto aos camarotes, bar exclusivo e acesso à pista e ao Club. Não inclui mesa. Classificação: 16 anos; menores de 18 anos somente acompanhados dos pais ou responsável legal/tutor, ou emancipados, com a documentação exigida.',
+        last_verified_at: now,
+      },
+    ]),
   });
 }
 
